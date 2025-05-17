@@ -11,7 +11,7 @@ export const Login = () => {
     };
 
     return (
-        <div className="d-flex align-items-center justify-content-center bg-light" style={{ minHeight: "100vh" }}>
+        <div className="d-flex align-items-center justify-content-center bg-light" style={{ minHeight: "60vh" }}>
             <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
                 <h3 className="text-center mb-4 text-primary fw-bold">Login to TrainWise</h3>
 

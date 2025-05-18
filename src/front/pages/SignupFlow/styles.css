@@ -1,0 +1,54 @@
+.signup-step-container {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fc;
+  padding: 2rem;
+}
+
+.signup-step-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gender-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.gender-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  width: 380px;
+  transition: all 0.3s ease;
+  background: #fff;
+  box-shadow: 0 0 0 transparent;
+}
+
+.gender-img-wrapper {
+  width: 100%;
+  height: 600px; /* Consistent height */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gender-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.gender-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.gender-card.selected {
+  border-color: #0d6efd;
+  box-shadow: 0 0 12px rgba(13, 110, 253, 0.2);
+}

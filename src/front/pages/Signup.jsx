@@ -1,84 +1,92 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import googleLogo from "../assets/img/Logo_google_g_icon.png";
+import "../css/Login.css"; // Reuse login styles
 
 export const Signup = () => {
-    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
 
-    const handleSignup = async (e) => {
+    const handleSignup = (e) => {
         e.preventDefault();
-        if (password !== confirmPassword) {
-            alert("Password do not match!");
-            return;
-        }
-        const response = await fetch("/api/signup", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email, password })
-        });
-        const data = await response.json();
-        console.log("Signup response:", data)
+        console.log("Signing up with:", email, password);
     };
 
     return (
-        <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
-            <div className="bg-white p-4 rounded shadow-lg w-100" style={{ maxWidth: "400px" }}>
-                <h2 className="text-center mb-4">Sign Up</h2>
+        <div className="d-flex align-items-center justify-content-center login-page">
+            <div className="card shadow p-4 bg-white bg-opacity-90" style={{ maxWidth: "400px", width: "100%" }}>
+                <h3 className="text-center mb-4 text-primary fw-bold">Create your TrainWise account</h3>
+
                 <form onSubmit={handleSignup}>
                     <div className="mb-3">
-                        <label htmlFor="name" className="form-label">Name</label>
+                        <label className="form-label fw-semibold">Email</label>
                         <input
-                            id="name"
-                            type="text"
-                            className="form-control"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="email" className="form-label">Email</label>
-                        <input
-                            id="email"
                             type="email"
                             className="form-control"
+                            placeholder="Enter your email"
+                            required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            required
                         />
                     </div>
+
                     <div className="mb-3">
-                        <label htmlFor="password" className="form-label">Password</label>
+                        <label className="form-label fw-semibold">Password</label>
                         <input
-                            id="password"
                             type="password"
                             className="form-control"
+                            placeholder="Create a password"
+                            required
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            required
                         />
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
-                        <input
-                            id="confirmPassword"
-                            type="password"
-                            className="form-control"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-success w-100">
+
+                    <button type="submit" className="btn btn-primary w-100">
                         Sign Up
                     </button>
+
+                    <div className="text-center mt-4">
+                        <small className="text-muted">Already have an account?</small>
+                        <Link to="/login" className="text-decoration-none text-primary fw-semibold"> Log In</Link>
+                    </div>
                 </form>
-                <p className="mt-3 text-center">
-                    Already have an account?{" "}
-                    <Link to="/login" className="text-primary">Login</Link>
-                </p>
+
+                <div className="d-flex align-items-center my-4">
+                    <hr className="flex-grow-1" />
+                    <span className="px-2 text-muted">or continue with</span>
+                    <hr className="flex-grow-1" />
+                </div>
+
+                <div className="d-grid gap-2 mt-3">
+                    <button
+                        type="button"
+                        className="btn w-100 bg-white border rounded d-flex align-items-center justify-content-center social-btn"
+                    >
+                        <img
+                            src={googleLogo}
+                            alt="Google"
+                            style={{ width: "25px", height: "25px", marginRight: "5px" }}
+                        />
+                        <span className="fw-medium text-muted">Sign up with Google</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        className="btn w-100 bg-white border rounded d-flex align-items-center justify-content-center social-btn"
+                    >
+                        <i className="bi bi-apple fs-5 me-2 text-dark"></i>
+                        <span className="fw-medium text-muted">Sign up with Apple</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        className="btn w-100 bg-white border rounded d-flex align-items-center justify-content-center social-btn"
+                    >
+                        <i className="bi bi-facebook fs-5 me-2 text-primary"></i>
+                        <span className="fw-medium text-muted">Sign up with Facebook</span>
+                    </button>
+                </div>
             </div>
         </div>
     );

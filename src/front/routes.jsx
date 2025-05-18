@@ -8,8 +8,9 @@ import {
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
-import { Signup } from "./pages/Signup";
 import { LandingPage } from "./pages/LandingPage";
+import { SignupSurvey } from "./pages/SignupSurvey";
+import { SignupFlow } from "./pages/SignupFlow/SignupFlow";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,7 +27,7 @@ export const router = createBrowserRouter(
       <Route path="/" element={<LandingPage />} />
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
+      <Route path="/signup" element={<SignupFlow />} />
       <Route path="/landingPage" element={<LandingPage />} />
     </Route>
   )

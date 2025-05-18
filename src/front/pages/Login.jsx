@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import googleLogo from "../assets/img/Logo_google_g_icon.png";
+import loginBackground from "../assets/img/login_bg.jpg";
+import "../css/Login.css";
 
 export const Login = () => {
     const [email, setEmail] = useState("");
@@ -11,10 +14,9 @@ export const Login = () => {
     };
 
     return (
-        <div className="d-flex align-items-center justify-content-center bg-light" style={{ minHeight: "60vh" }}>
-            <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
+        <div className="d-flex align-items-center justify-content-center bg-light login-page">
+            <div className="card shadow p-4 bg-white bg-opacity-90" style={{ maxWidth: "400px", width: "100%" }}>
                 <h3 className="text-center mb-4 text-primary fw-bold">Login to TrainWise</h3>
-
                 <form onSubmit={handleLogin}>
                     <div className="mb-3">
                         <label className="form-label fw-semibold">Email</label>
@@ -65,17 +67,39 @@ export const Login = () => {
                 </div>
 
                 {/* Social Buttons */}
-                <div className="d-grid gap-2">
-                    <button className="btn btn-outline-danger" type="button">
-                        <i className="bi bi-google me-2"></i> Sign in with Google
+                <div className="d-grid gap-2 mt-3">
+                    {/* Google Button */}
+                    <button
+                        type="button"
+                        className="btn w-100 bg-white border rounded d-flex align-items-center justify-content-center social-btn"
+                    >
+                        <img
+                            src={googleLogo}
+                            alt="Google"
+                            style={{ width: "25px", height: "25px", marginRight: "5px" }}
+                        />
+                        <span className="fw-medium text-muted">Sign in with Google</span>
                     </button>
-                    <button className="btn btn-outline-dark" type="button">
-                        <i className="bi bi-apple me-2"></i> Sign in with Apple
+
+                    {/* Apple Button */}
+                    <button
+                        type="button"
+                        className="btn w-100 bg-white border rounded d-flex align-items-center justify-content-center social-btn"
+                    >
+                        <i className="bi bi-apple fs-5 me-2 text-dark"></i>
+                        <span className="fw-medium text-muted">Sign in with Apple</span>
                     </button>
-                    <button className="btn btn-outline-primary" type="button">
-                        <i className="bi bi-facebook me-2"></i> Sign in with Facebook
+
+                    {/* Facebook Button */}
+                    <button
+                        type="button"
+                        className="btn w-100 bg-white border rounded d-flex align-items-center justify-content-center social-btn"
+                    >
+                        <i className="bi bi-facebook fs-5 me-2 text-primary"></i>
+                        <span className="fw-medium text-muted">Sign in with Facebook</span>
                     </button>
                 </div>
+
             </div>
         </div>
     );

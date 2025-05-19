@@ -11,6 +11,7 @@ import { Step9_GoalWeight } from "./Step9_GoalWeight";
 import { Step10_AgeLocation } from "./Step10_AgeLocation";
 import { Step11_EquipmentFamiliarity } from "./Step11_EquipmentFamiliarity";
 import { Step12_TrainingFrequency } from "./Step12_TrainingFrequency";
+import { Step13_WorkoutDuration } from "./Step13_WorkoutDuration";
 
 export const SignupFlow = () => {
     const [step, setStep] = useState(1);
@@ -110,6 +111,13 @@ export const SignupFlow = () => {
             {step === 12 && (
                 <Step12_TrainingFrequency
                     frequency={formData.trainingFrequency}
+                    onNext={handleNext}
+                    onBack={handleBack}
+                />
+            )}
+            {step === 13 && (
+                <Step13_WorkoutDuration
+                    workoutDuration={formData.workoutDuration}
                     onNext={handleNext}
                     onBack={handleBack}
                 />

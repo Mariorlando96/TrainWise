@@ -3,6 +3,7 @@ import "./styles.css";
 import maleImg from "../../assets/img/male.jpg";
 import femaleImg from "../../assets/img/female.jpg";
 import { FaArrowLeft } from "react-icons/fa";
+import ProgressHeader from "../../components/ProgressHeader";
 
 export const Step1_Gender = ({ onNext }) => {
     const [selected, setSelected] = useState("");
@@ -20,18 +21,7 @@ export const Step1_Gender = ({ onNext }) => {
             <div className="signup-step-wrapper"> {/* All content inside here */}
 
                 {/* Progress Header */}
-                <div className="progress-container w-100 mb-4">
-                    <div className="d-flex align-items-center justify-content-between">
-                        <FaArrowLeft className="fs-5 text-primary" style={{ cursor: "not-allowed", opacity: 0.5 }} />
-                        <div className="progress w-100 mx-3" style={{ height: "8px", borderRadius: "5px", backgroundColor: "#e0e0e0" }}>
-                            <div
-                                className="progress-bar bg-primary"
-                                role="progressbar"
-                                style={{ width: "7%", height: "100%", borderRadius: "5px" }}
-                            ></div>
-                        </div>
-                    </div>
-                </div>
+                <ProgressHeader progressPercent={7} />
 
                 <h2 className="text-center mb-2 fw-bold">Select your gender</h2>
                 <p className="text-center text-muted mb-4">

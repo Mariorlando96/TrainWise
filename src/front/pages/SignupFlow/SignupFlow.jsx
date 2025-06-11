@@ -12,6 +12,7 @@ import { Step10_AgeLocation } from "./Step10_AgeLocation";
 import { Step11_EquipmentFamiliarity } from "./Step11_EquipmentFamiliarity";
 import { Step12_TrainingFrequency } from "./Step12_TrainingFrequency";
 import { Step13_WorkoutDuration } from "./Step13_WorkoutDuration";
+import { Step14_Limitations } from "./Step14_Limitations";
 
 export const SignupFlow = () => {
     const [step, setStep] = useState(1);
@@ -122,6 +123,14 @@ export const SignupFlow = () => {
                     onBack={handleBack}
                 />
             )}
+            {step === 14 && (
+                <Step14_Limitations
+                    limitations={formData.trainingLimitations}
+                    onNext={handleNext}
+                    onBack={handleBack}
+                />
+            )}
+
 
 
 

@@ -13,6 +13,8 @@ import { Step11_EquipmentFamiliarity } from "./Step11_EquipmentFamiliarity";
 import { Step12_TrainingFrequency } from "./Step12_TrainingFrequency";
 import { Step13_WorkoutDuration } from "./Step13_WorkoutDuration";
 import { Step14_Limitations } from "./Step14_Limitations";
+import { Step15_Result } from "./Step15_Result";
+import { Step16_EmailCapture } from "./Step16_EmailCapture";
 
 export const SignupFlow = () => {
     const [step, setStep] = useState(1);
@@ -130,6 +132,21 @@ export const SignupFlow = () => {
                     onBack={handleBack}
                 />
             )}
+            {step === 15 && (
+                <Step15_Result
+                    startWeight={formData.weight}
+                    goalWeight={formData.goalWeight}
+                    onContinue={handleNext} // or redirect
+                />
+            )}
+            {step === 16 && (
+                <Step16_EmailCapture
+                    onNext={handleNext}
+                    onBack={handleBack}
+                />
+            )}
+
+
 
 
 
